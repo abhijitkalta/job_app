@@ -11,10 +11,10 @@
  %header.main_header.clearfix
   .wrapper
    #logo
-    %p= link_to "Abhijit's Rails Forum", root_path
+    %p= link_to "Abhijit's Job APP", root_path
    #buttons
     - if user_signed_in?
-     = link_to "New Post", new_job_path
+     = link_to "New Job", new_job_path
      = link_to "Logout", destroy_user_session_path, method: :delete
     - else
      = link_to "Sign up", new_user_registration_path
