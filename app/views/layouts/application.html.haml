@@ -19,12 +19,18 @@
     - else
      = link_to "Sign up", new_user_registration_path
      = link_to "Sign in", new_user_session_path
+  .container
+   %ul.nav.navbar-nav
+    - if user_signed_in?
+     %li= link_to "All jobs", root_path
+     - Category.all.each do |category|
+      %li=link_to category.name, jobs_path(category: category.name)
+
 .wrapper
  %p.notice= notice
  %p.alert= alert
 
- .wrapper
- - if user_signed_in?
-  - Category.all.each do |category|
-   =link_to category.name, jobs_path(category: category.name)
- = yield
+
+.container
+ .col-md-6.col-md-offset-3
+  = yield
